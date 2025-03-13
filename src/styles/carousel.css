@@ -29,7 +29,7 @@
 
 .carousel {
   position: relative;
-  height: 600px;
+  height: 90vh;
   overflow: visible;
   margin: 2rem 0;
 }
@@ -45,15 +45,15 @@
 
 .carousel .list .item {
   position: absolute;
-  width: 320px;
-  height: 400px;
+  width: min(400px, 90vw);
+  height: min(500px, 80vh);
   transition: all 0.5s ease-in-out;
   cursor: pointer;
 }
 
 .carousel .list .item img {
   width: 100%;
-  height: 220px;
+  height: 50%;
   object-fit: contain;
   padding: 20px;
 }

@@ -108,8 +108,7 @@ const ProductCarousel = () => {
               position: 'absolute',
               left: '50%',
               top: '50%',
-              marginLeft: '-160px',
-              marginTop: '-200px',
+              transform: 'translate(-50%, -50%)'
             }}
             onClick={(e) => e.stopPropagation()}
           >

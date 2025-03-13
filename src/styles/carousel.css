@@ -29,102 +29,117 @@
 
 .carousel {
   position: relative;
-  height: 800px;
-  overflow: hidden;
-  margin-top: -50px;
+  height: 600px;
+  overflow: visible;
+  margin: 2rem 0;
 }
 
 .carousel .list {
-  position: absolute;
-  width: 1140px;
-  max-width: 90%;
-  height: 80%;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .carousel .list .item {
   position: absolute;
-  left: 0%;
-  width: 70%;
-  height: 100%;
-  font-size: 15px;
-  transition: transform 0.5s, opacity 0.5s, filter 0.5s;
+  width: 320px;
+  height: 400px;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
 }
 
 .carousel .list .item img {
-  width: 50%;
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  transition: right 1.5s;
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  padding: 20px;
 }
 
-.carousel .list .item .introduce {
-  opacity: 0;
-  pointer-events: none;
-  width: 400px;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  transition: opacity 0.5s;
+.carousel .list .item .product-info {
+  padding: 20px;
 }
 
-.carousel .list .item:nth-child(2) .introduce {
+.carousel .list .item .product-info .title {
+  font-size: 1.4em;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.carousel .list .item .product-info .price {
+  font-size: 1.8em;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #4caf50;
+}
+
+.carousel .list .item .product-info .description {
+  font-size: 0.9em;
+  line-height: 1.3;
+  opacity: 0.8;
+}
+
+:root {
+  --item1-transform: translateX(-100%) scale(0.8);
+  --item1-opacity: 0;
+  --item1-filter: blur(10px);
+  --item1-zIndex: 1;
+
+  --item2-transform: translateX(-50%) scale(0.9);
+  --item2-opacity: 0.6;
+  --item2-filter: blur(5px);
+  --item2-zIndex: 2;
+
+  --item3-transform: translateX(0) scale(1);
+  --item3-opacity: 1;
+  --item3-filter: blur(0);
+  --item3-zIndex: 3;
+
+  --item4-transform: translateX(50%) scale(0.9);
+  --item4-opacity: 0.6;
+  --item4-filter: blur(5px);
+  --item4-zIndex: 2;
+
+  --item5-transform: translateX(100%) scale(0.8);
+  --item5-opacity: 0;
+  --item5-filter: blur(10px);
+  --item5-zIndex: 1;
+}
+
+.carousel .list .item:nth-child(3) {
+  transform: translateX(-70%) scale(0.8);
+  opacity: 0.6;
+  z-index: 0;
+}
+
+.carousel .list .item:nth-child(2) {
+  transform: translateX(0) scale(1);
   opacity: 1;
-  pointer-events: auto;
+  z-index: 1;
 }
 
-.carousel .list .item .introduce .title {
-  font-size: 2em;
-  font-weight: 500;
-  line-height: 1em;
+.carousel .list .item:nth-child(1) {
+  transform: translateX(70%) scale(0.8);
+  opacity: 0.6;
+  z-index: 0;
+}
+
+.carousel .list .item:nth-child(4),
+.carousel .list .item:nth-child(5) {
   opacity: 0;
-  animation: showContent 0.5s 1s ease-in-out 1 forwards;
-}
-
-.carousel .list .item .introduce .topic {
-  font-size: 4em;
-  font-weight: 500;
-  opacity: 0;
-  animation: showContent 0.5s 1.2s ease-in-out 1 forwards;
-}
-
-.carousel .list .item .introduce .des {
-  font-size: small;
-  color: rgba(85, 85, 85, 0.9);
-  opacity: 0;
-  animation: showContent 0.5s 1.4s ease-in-out 1 forwards;
-}
-
-.carousel .list .item .introduce .seeMore {
-  font-family: Poppins;
-  margin-top: 1.2em;
-  padding: 5px 0;
-  border: none;
-  border-bottom: 1px solid #555;
-  background-color: transparent;
-  font-weight: bold;
-  letter-spacing: 3px;
-  transition: background 0.5s;
-  opacity: 0;
-  animation: showContent 0.5s 1.6s ease-in-out 1 forwards;
-}
-
-.carousel .list .item .introduce .seeMore:hover {
-  background: #eee;
+  z-index: -1;
 }
 
 @keyframes showContent {
-  from {
-    transform: translateY(-30px);
-    filter: blur(10px);
+  from { 
+    opacity: 0;
+    transform: translateY(100%);
   }
-  to {
-    transform: translateY(0);
+  to { 
     opacity: 1;
-    filter: blur(0px);
+    transform: translateY(0);
   }
 }
 
